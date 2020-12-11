@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grouped_list/grouped_list.dart';
-import 'package:intl/intl.dart';
 import 'package:wolfpack_assessment/models/global.dart';
-
-import 'models/data.dart';
 import 'templates/moment.dart';
 
 void main() {
@@ -17,15 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: globalGrey,
       ),
@@ -36,15 +23,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -61,49 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
             backgroundColor: globalGreen,
             title: Text("Days"),
           ),
-          body: GroupedListView<dynamic, DateTime>(
-            elements: moments,
-            groupBy: (moments) {
-              return moments.date;
-            },
-            groupSeparatorBuilder: (DateTime date) => MomentGroupSeparator(
-              date: date,
-            ),
-            order: GroupedListOrder.ASC,
-            itemBuilder: (context, dynamic moments) => Card(
-              color: moments.complete == true ? globalGreen : globalLightGrey,
-              child: CheckboxListTile(
-                secondary: Icon(
-                  moments.name == "Lunch" ? Icons.free_breakfast : Icons.work,
-                  color: moments.complete == true ? Colors.white : Colors.black,
-                ),
-                title: Text(
-                  moments.name,
-                  style: TextStyle(
-                      color: moments.complete == true
-                          ? Colors.white
-                          : Colors.black),
-                ),
-                subtitle: Text(
-                  "${DateFormat('jm').format(moments.time)}",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
-                      color: moments.complete == true
-                          ? Colors.white
-                          : Colors.black),
-                ),
-                checkColor: globalGreen,
-                activeColor: Colors.white,
-                value: moments.complete,
-                onChanged: (bool newValue) => {
-                  setState(() {
-                    moments.complete = newValue;
-                  })
-                },
-              ),
-            ),
-          ),
+          body: MomentCard(),
           backgroundColor: globalGrey),
     );
   }
