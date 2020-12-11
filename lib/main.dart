@@ -73,13 +73,25 @@ class _MyHomePageState extends State<MyHomePage> {
             itemBuilder: (context, dynamic moments) => Card(
               color: moments.complete == true ? globalGreen : globalLightGrey,
               child: CheckboxListTile(
-                secondary: Icon(moments.name == "Lunch"
-                    ? Icons.free_breakfast
-                    : Icons.work),
-                title: Text(moments.name),
+                secondary: Icon(
+                  moments.name == "Lunch" ? Icons.free_breakfast : Icons.work,
+                  color: moments.complete == true ? Colors.white : Colors.black,
+                ),
+                title: Text(
+                  moments.name,
+                  style: TextStyle(
+                      color: moments.complete == true
+                          ? Colors.white
+                          : Colors.black),
+                ),
                 subtitle: Text(
                   "${DateFormat('jm').format(moments.time)}",
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      color: moments.complete == true
+                          ? Colors.white
+                          : Colors.black),
                 ),
                 checkColor: globalGreen,
                 activeColor: Colors.white,
