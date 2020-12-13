@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wolfpack_assessment/models/global.dart';
-import 'templates/moment.dart';
+import 'moment.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,12 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Wolfpack Assignment',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: globalGrey,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Wolfpack Assignment'),
     );
   }
 }
