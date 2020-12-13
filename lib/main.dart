@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wolfpack_assessment/models/global.dart';
+import 'package:wolfpack_assessment/report.dart';
 import 'moment.dart';
 
 void main() {
@@ -33,14 +34,26 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Days',
-      home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: globalGreen,
-            title: Text("Days"),
-          ),
-          body: MomentCard(),
-          backgroundColor: globalGrey),
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+            appBar: AppBar(
+              bottom: TabBar(
+                indicatorColor: globalLightGreen,
+                tabs: [
+                  Tab(icon: Icon(Icons.medical_services)),
+                  Tab(
+                    icon: Icon(Icons.today),
+                  )
+                ],
+              ),
+              backgroundColor: globalGreen,
+            ),
+            body: TabBarView(
+              children: [MomentCard(), ReportView()],
+            ),
+            backgroundColor: globalGrey),
+      ),
     );
   }
 }

@@ -25,7 +25,10 @@ dependencies:
     sdk: flutter
   grouped_list: ^3.7.1
   intl: ^0.16.0
- 
+  percent_indicator: ^2.1.8
+  timeline_tile: ^1.0.0
+  circular_check_box: ^1.0.4
+  font_awesome_flutter: ^8.10.1
   
 
 

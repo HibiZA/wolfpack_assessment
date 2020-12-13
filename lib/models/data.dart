@@ -33,6 +33,10 @@ class Medicine {
     return taken = takenVariable;
   }
 
+  // bool get takenValue {
+  //   return taken;
+  // }
+
   Medicine(this.medicine, this.dosage, this.taken);
 }
 
@@ -59,8 +63,8 @@ final List<Moments> moments = [
     Medicine("GenPain", "100mg", false),
     Medicine("Paracetamol", "100mg", false)
   ]),
-  Moments(6, "Lunch", DateTime.utc(0, 0, 0, 12), DateTime.utc(2020, 14, 10),
-      false, [
+  Moments(
+      6, "Lunch", DateTime.utc(0, 0, 0, 12), DateTime.utc(2020, 6, 10), false, [
     Medicine("GenPain", "100mg", false),
     Medicine("Paracetamol", "100mg", false)
   ]),
